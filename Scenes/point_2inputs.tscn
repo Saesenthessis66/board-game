@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr7o6cwq6i3y1"]
+
+[ext_resource type="Script" path="res://Scripts/point_2inputs.gd" id="1_0ko67"]
+[ext_resource type="Texture2D" uid="uid://bjotexysgxm70" path="res://icon.svg" id="2_m236e"]
+
+[node name="Point" type="Node2D"]
+script = ExtResource("1_0ko67")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -18.0
+offset_top = -19.0
+offset_right = 110.0
+offset_bottom = 109.0
+scale = Vector2(0.319999, 0.32)
+texture = ExtResource("2_m236e")

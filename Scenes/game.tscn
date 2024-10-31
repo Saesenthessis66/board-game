@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d3rpjairgbrjs"]
+[gd_scene load_steps=5 format=3 uid="uid://d3rpjairgbrjs"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_5fs3d"]
 [ext_resource type="PackedScene" uid="uid://df1a6h5s2mfiw" path="res://Scenes/player.tscn" id="1_tgl3s"]
 [ext_resource type="PackedScene" uid="uid://cyxul5ptm4wd" path="res://Scenes/point.tscn" id="2_ajgad"]
+[ext_resource type="PackedScene" uid="uid://bnyccj8u1d2j" path="res://Scenes/point_2outputs.tscn" id="4_jif83"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_5fs3d")
@@ -16,26 +17,25 @@ position = Vector2(103, 17)
 current_point = NodePath("../Point")
 
 [node name="Point" parent="." instance=ExtResource("2_ajgad")]
-position = Vector2(28, 36)
+position = Vector2(-41, 93)
 next_point = NodePath("../Point2")
 
-[node name="Point2" parent="." instance=ExtResource("2_ajgad")]
-position = Vector2(79, 61)
+[node name="Button" type="Button" parent="."]
+offset_left = 17.0
+offset_top = 5.0
+offset_right = 25.0
+offset_bottom = 13.0
+
+[node name="Point2" parent="." instance=ExtResource("4_jif83")]
+position = Vector2(-3, 90)
 previous_point = NodePath("../Point")
-next_point = NodePath("../Point3")
+next_point_top = NodePath("../Point3")
+next_point_bot = NodePath("../Point4")
 
 [node name="Point3" parent="." instance=ExtResource("2_ajgad")]
-position = Vector2(130, 62)
-previous_point = NodePath("../Point2")
-next_point = NodePath("../Point4")
-
-[node name="Button" type="Button" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
+position = Vector2(56, 57)
 
 [node name="Point4" parent="." instance=ExtResource("2_ajgad")]
-position = Vector2(180, 64)
-previous_point = NodePath("../Point3")
-next_point = NodePath("../Point")
+position = Vector2(59, 99)
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
